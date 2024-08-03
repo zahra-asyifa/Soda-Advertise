@@ -1,0 +1,84 @@
+main {
+  z-index: 1;
+}
+
+.container-product {
+  height: 970px;
+  overflow: hidden;
+  position: relative;
+}
+
+.container-product .product {
+  /* background-color: blueviolet; */
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  bottom: 390px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* padding-top: 50px; */
+  transition: 0.7s;
+  --left: 0px;
+  display: flex;
+}
+
+.container-product .product .soda {
+  background: 
+    var(--url) var(--left) 0,
+    url(Image/Soda.png);
+  background-size: auto 100%;
+  width: 420px;
+  aspect-ratio: 2/4;
+  background-blend-mode: multiply;
+  mask-image: url(Image/Soda.png);
+  mask-size: auto 100%;
+  transition: 0.7s;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.container-product .product:hover {
+  --left: -1000px;
+  transform: translateX(-50%) translateY(-80px);
+}
+
+ .container-product .bubbles {
+  /* position: absolute; */
+  inset: 0 0 0 0;
+}
+
+.container-product .bubbles img{
+  position: absolute;
+  transition: 0.7s;
+} 
+
+.container-product .bubbles img:nth-child(1) {
+  height: 50%;
+  left: 0;
+  bottom: -50px;
+}
+
+.container-product:has(.product:hover) .bubbles img:nth-child(1) {
+  transform: translateX(-20px) translateY(100px);
+}
+
+.container-product .bubbles img:nth-child(2) {
+  height: 100%;
+  right: 0;
+  top: -80px;
+
+}
+
+.container-product:has(.product:hover) .bubbles img:nth-child(2) {
+  transform: translateX(60px) translateY(-32px);
+}
+
+.container-product .product .soda:nth-child(2) {
+  opacity: 0;
+}
+
+.container-product .product:hover .soda:nth-child(2) {
+  opacity: 1;
+}
